@@ -3,10 +3,13 @@ import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
 import { getAllEMPLOYEESReducer } from './reducers/employeeReducers'
+import { ticketReducer, getAllTicketsReducer } from './reducers/ticketReducers'
 
 
 const reducers = combineReducers({
-    allEmployees: getAllEMPLOYEESReducer
+    allEmployees: getAllEMPLOYEESReducer,
+    ticket: ticketReducer,
+    allTickets: getAllTicketsReducer,
 
 })
 

@@ -1,0 +1,175 @@
+.navbar {
+    background-color: #000 !important;
+}
+
+.card {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card h4 a {
+    text-decoration: none;
+}
+
+.card p {
+    font-size: 18px;
+}
+
+.card span {
+    font-size: 15px;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 35px;
+}
+
+.navv {
+    z-index: 1;
+}
+
+.dashboard {
+    padding: 1px 16px;
+    min-height: 610px;
+}
+
+.sidebar li a {
+    color: #fff;
+}
+
+.icon {
+    font-size: 20px;
+}
+
+.icon i {
+    cursor: pointer;
+}
+
+.responsive {
+    padding-left: 10px;
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #000;
+    z-index: 11;
+    transition: all 0.3s;
+}
+
+.mobile-sidebar a {
+    padding-left: 15px;
+}
+
+.left {
+    left: -200px;
+}
+
+.menu-icon {
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    padding: 10px;
+    background: #000;
+    padding-right: 30px;
+}
+
+.menu-icon i {
+    cursor: pointer;
+}
+
+.responsive ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 0 0 0;
+}
+
+.responsive ul li {
+    margin-bottom: 10px;
+}
+.responsive li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.responsive ul li a:hover {
+    color: #0a58ca;
+}
+
+.sidebar-active {
+    color: #0a58ca;
+    background: rgb(56, 56, 56);
+}
+
+.sidebar {
+    background: #000;
+    min-height: 700px;
+}
+
+a:hover {
+    color: #89909c !important;
+}
+
+@media (min-width: 100px) {
+    .sidebar {
+        display: none;
+    }
+    .mobile-sidebar {
+        display: block;
+    }
+    .dashboard {
+        margin-left: 50px;
+    }
+}
+
+.overflow {
+    height: 400px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .sidebar {
+        display: block;
+    }
+    .mobile-sidebar {
+        display: none;
+    }
+    .dashboard {
+        margin-left: 0px;
+    }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}

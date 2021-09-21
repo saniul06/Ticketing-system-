@@ -26,6 +26,7 @@ export const getAllEMPLOYEESReducer = (state = {}, action) => {
 
         case ALL_EMPLOYEES_RESET:
             return {
+                ...state,
                 error: false
             }
 
