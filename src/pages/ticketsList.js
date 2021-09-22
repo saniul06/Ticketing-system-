@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useAlert } from 'react-alert'
 import Sidebar from '../components/Sidebar'
@@ -6,43 +6,22 @@ import MobileSidebar from '../components/MobileSidebar'
 import MetaData from '../components/MetaData'
 import SingleTicket from '../components/cards/SingleTicket'
 import { getAllEmployees } from '../actions/employeeActions'
-import { getAllTickets, changeTicketStatus, assignTicketToEmployee } from '../actions/ticketActions'
+import { getAllTickets, changeTicketStatus } from '../actions/ticketActions'
 import { ALL_EMPLOYEES_RESET, ALL_TICKETS_RESET, TICKET_RESET } from '../actions/actionTypes'
-
-const initialState = {
-    name: '',
-    email: '',
-    productOrServiceName: '',
-    details: ''
-};
-
 
 const EmployeeList = () => {
 
     const dispatch = useDispatch()
     const alert = useAlert()
 
-    const ticketFunction = useRef()
-
-    const { loading: employeesLoading, employees, error: employeesError } = useSelector(state => state.allEmployees)
-    const { loading: ticketsLoading, tickets, error: ticketsError } = useSelector(state => state.allTickets)
-    const { loading: ticketStatusLoading, message, error: ticketStatusError } = useSelector(state => state.ticket)
-
-    const [ticketdetails, setTicketDetails] = useState(initialState)
-
-    const setTicketInfo = useCallback((ticket) => {
-        setTicketDetails({
-            name: ticket.customer.name,
-            email: ticket.customer.email,
-            productOrServiceName: ticket.productOrServiceName,
-            details: ticket.details
-        })
-    }, [])
+    const { employees, error: employeesError } = useSelector(state => state.allEmployees)
+    const { tickets, error: ticketsError } = useSelector(state => state.allTickets)
+    const { message, error: ticketStatusError } = useSelector(state => state.ticket)
 
     useEffect(() => {
         dispatch(getAllEmployees())
         dispatch(getAllTickets())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         if (employeesError) {
@@ -105,7 +84,6 @@ const EmployeeList = () => {
                                                 <SingleTicket
                                                     key={ticket._id}
                                                     ticket={ticket}
-                                                    setTicketInfo={setTicketInfo}
                                                     changeTicketStatus={changeTicketStatus}
                                                     list={true}
                                                     employees={employees}

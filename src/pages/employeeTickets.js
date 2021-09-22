@@ -8,37 +8,19 @@ import SingleTicket from '../components/cards/SingleTicket'
 import { changeTicketStatus, getAllTicketsOfEmployee } from '../actions/ticketActions'
 import { ALL_TICKETS_RESET, TICKET_RESET } from '../actions/actionTypes'
 
-const initialState = {
-    name: '',
-    email: '',
-    productOrServiceName: '',
-    details: ''
-};
-
 const EmployeeTickets = ({ match }) => {
 
     const dispatch = useDispatch()
     const alert = useAlert()
 
     const { loading: ticketsLoading, tickets, error: ticketsError } = useSelector(state => state.allTickets)
-    const { loading: ticketStatusLoading, message, error: ticketStatusError } = useSelector(state => state.ticket)
+    const { message, error: ticketStatusError } = useSelector(state => state.ticket)
 
     const [allTickets, setAllTickets] = useState()
 
-    const [ticketdetails, setTicketDetails] = useState(initialState)
-
-    const setTicketInfo = ticket => {
-        setTicketDetails({
-            name: ticket.customer.name,
-            email: ticket.customer.email,
-            productOrServiceName: ticket.productOrServiceName,
-            details: ticket.details
-        })
-    }
-
     useEffect(() => {
         dispatch(getAllTicketsOfEmployee(match.params.id))
-    }, [])
+    }, [dispatch, match.params.id])
 
     useEffect(() => {
         if (tickets) {
@@ -102,7 +84,6 @@ const EmployeeTickets = ({ match }) => {
                                                     <SingleTicket
                                                         key={ticket._id}
                                                         ticket={ticket}
-                                                        setTicketInfo={setTicketInfo}
                                                         changeTicketStatus={changeTicketStatus}
                                                         dispatch={dispatch}
                                                         list={false}

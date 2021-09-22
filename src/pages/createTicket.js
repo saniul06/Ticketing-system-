@@ -13,7 +13,7 @@ const CreateTicket = () => {
     const dispatch = useDispatch()
     const alert = useAlert()
 
-    const { loading, message, error } = useSelector(state => state.ticket)
+    const { message, error } = useSelector(state => state.ticket)
 
     const [ticket, setTicket] = useState({
         type: '',

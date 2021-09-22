@@ -7,7 +7,7 @@ import {
 import TicketDetailsModal from '../Modals/TicketDetailsModal';
 import TicketAssignModal from '../Modals/TticketAssignModal';
 
-const SingleTicket = ({ ticket, setTicketInfo, list, employees }) => {
+const SingleTicket = ({ ticket, list, employees }) => {
     const [open, setOpen] = useState(false);
     const handleOpen = (id) => {
         setTicketId(id);
