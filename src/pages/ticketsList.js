@@ -28,8 +28,6 @@ const EmployeeList = () => {
     const { loading: ticketsLoading, tickets, error: ticketsError } = useSelector(state => state.allTickets)
     const { loading: ticketStatusLoading, message, error: ticketStatusError } = useSelector(state => state.ticket)
 
-    const [allTickets, setAllTickets] = useState()
-
     const [ticketdetails, setTicketDetails] = useState(initialState)
 
     const setTicketInfo = useCallback((ticket) => {
@@ -45,14 +43,6 @@ const EmployeeList = () => {
         dispatch(getAllEmployees())
         dispatch(getAllTickets())
     }, [])
-
-    console.log(tickets)
-
-    // useEffect(() => {
-    //     if (tickets) {
-    //         setAllTickets(tickets)
-    //     }
-    // }, [tickets])
 
     useEffect(() => {
         if (employeesError) {

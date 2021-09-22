@@ -53,7 +53,7 @@ const EmployeeList = () => {
                                             <td>Email</td>
                                             <td>Phone</td>
                                             <td>isAdmin</td>
-                                            <td style={{ width: '250px' }}>Num of Tickets Assigned</td>
+                                            <td>Tickets</td>
                                             <td>View tickets</td>
                                         </tr>
                                     </thead>

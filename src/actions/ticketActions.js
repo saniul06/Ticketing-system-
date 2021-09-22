@@ -65,7 +65,6 @@ export const assignTicketToEmployee = (employeeId, ticketId, setSingleTicket) =>
         // dispatch(getAllTickets())
 
     } catch (err) {
-        console.log(err.message)
         dispatch({ type: ASSIGN_TICKET_FAIL, payload: err.message })
     }
 }
@@ -79,7 +78,6 @@ export const getAllTicketsOfEmployee = employeeId => async dispatch => {
         dispatch({ type: EMPLOYEE_TICKET_SUCCESS, payload: tickets })
 
     } catch (err) {
-        console.log(err.message)
         dispatch({ type: EMPLOYEE_TICKET_FAIL, payload: err.message })
     }
 }
