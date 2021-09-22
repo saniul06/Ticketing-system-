@@ -17,7 +17,7 @@ const EmployeeList = () => {
 
     useEffect(() => {
         dispatch(getAllEmployees())
-    }, [])
+    }, [dispatch])
 
     useEffect(() => {
         if (error) {

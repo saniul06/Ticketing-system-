@@ -49,7 +49,6 @@ export const changeTicketStatus = (_id, status, setSingleTicket) => async dispat
 
         ticketStatus(_id, status, 'none', setSingleTicket)
         dispatch({ type: TICKET_STATUS_SUCCESS, payload: 'Status Changed successfully' })
-        // dispatch(getAllTickets())
 
     } catch (err) {
         dispatch({ type: TICKET_STATUS_FAIL, payload: err.message })
@@ -62,7 +61,6 @@ export const assignTicketToEmployee = (employeeId, ticketId, setSingleTicket) =>
         dispatch({ type: ASSIGN_TICKET_REQUEST })
         assignToEmployee(employeeId, ticketId, setSingleTicket)
         dispatch({ type: ASSIGN_TICKET_SUCCESS, payload: 'Assignment successfully' })
-        // dispatch(getAllTickets())
 
     } catch (err) {
         dispatch({ type: ASSIGN_TICKET_FAIL, payload: err.message })
