@@ -14,7 +14,7 @@ npm i
 npm start
 ```
 
-### Run Test (It will open with google chrome)
+### Run Test
 
 ```
 npm test
