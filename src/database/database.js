@@ -6,7 +6,12 @@ const loadDatabase = () => {
 }
 
 export const getAll = name => {
-    return JSON.parse(localStorage.getItem(name))
+    if (localStorage.getItem(name)) {
+        return JSON.parse(localStorage.getItem(name))
+    } else {
+        return 'Data is stored in localStorage. So you get nothing'
+    }
+
 }
 
 export const createNewTicket = ticket => {
