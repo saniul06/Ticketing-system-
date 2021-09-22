@@ -138,4 +138,4 @@ const SingleTicket = ({ ticket, setTicketInfo, list, employees }) => {
     );
 };
 
-export default SingleTicket;
+export default memo(SingleTicket);
