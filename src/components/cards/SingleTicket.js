@@ -13,7 +13,10 @@ const SingleTicket = ({ ticket, setTicketInfo, list, employees }) => {
         setTicketId(id);
         setOpen(true);
     };
-    const handleClose = () => setOpen(false);
+    const handleClose = () => {
+        setOpen(false)
+        setEmployeeId()
+    };
 
     const [ticketDetailsModal, setTicketDetailsModal] = useState(false);
     const ticketDetailsModalOpen = () => setTicketDetailsModal(true);
@@ -33,81 +36,81 @@ const SingleTicket = ({ ticket, setTicketInfo, list, employees }) => {
 
     return (
         <>
-            {ticket && (
-                <tr>
-                    <td>{singleTicket._id}</td>
+            <tr>
+                <td>{singleTicket._id}</td>
 
-                    <td>{singleTicket.type}</td>
+                <td>{singleTicket.type}</td>
 
-                    <td
-                        className={
-                            singleTicket && singleTicket.status === 'assigned'
-                                ? 'text-info'
-                                : singleTicket.status === 'rejected'
-                                    ? 'text-danger'
-                                    : singleTicket.status === 'resolved'
-                                        ? 'text-success'
-                                        : 'text-dark'
-                        }>
-                        {singleTicket && singleTicket.status}
-                    </td>
+                <td
+                    className={
+                        singleTicket && singleTicket.status === 'assigned'
+                            ? 'text-info'
+                            : singleTicket.status === 'rejected'
+                                ? 'text-danger'
+                                : singleTicket.status === 'resolved'
+                                    ? 'text-success'
+                                    : 'text-dark'
+                    }>
+                    {singleTicket && singleTicket.status}
+                </td>
 
-                    <td>
-                        {singleTicket && singleTicket.assignedTo
-                            ? singleTicket.assignedTo
-                            : 'Not assigned'}
-                    </td>
+                <td>
+                    {singleTicket && singleTicket.assignedTo
+                        ? singleTicket.assignedTo
+                        : 'Not assigned'}
+                </td>
 
-                    <td>{new Date(singleTicket.createdAt).toDateString()}</td>
+                <td>{new Date(singleTicket.createdAt).toDateString()}</td>
 
-                    <td>
+                <td>
+                    <button
+                        className="btn btn-sm btn-primary"
+                        onClick={ticketDetailsModalOpen}>
+                        Details
+                    </button>
+
+                    {list && (
                         <button
-                            className="mx-2 btn btn-sm btn-primary"
-                            onClick={ticketDetailsModalOpen}>
-                            Details
+                            disabled={
+                                singleTicket.status === 'resolved' ||
+                                    singleTicket.status === 'assigned'
+                                    ? true
+                                    : false
+                            }
+                            className="btn btn-sm btn-secondary"
+                            onClick={() => handleOpen(ticket._id)}>
+                            Assign
                         </button>
+                    )}
 
-                        {list && (
-                            <button
-                                disabled={
-                                    singleTicket.status === 'resolved' ||
-                                        singleTicket.status === 'assigned'
-                                        ? true
-                                        : false
-                                }
-                                className="mx-2 btn btn-sm btn-success"
-                                onClick={() => handleOpen(ticket._id)}>
-                                Assign
-                            </button>
-                        )}
+                    <button
+                        disabled={singleTicket.status === 'resolved' ? true : false}
+                        className="btn btn-sm btn-success"
+                        onClick={() => dispatch(
+                            changeTicketStatus(singleTicket._id, 'resolved', setSingleTicket)
+                        )}>
+                        Resolve
+                    </button>
 
-                        {list ? (
-                            <button
-                                disabled={
-                                    singleTicket.status === 'assigned' ||
-                                        singleTicket.status === 'resolved'
-                                        ? true
-                                        : false
-                                }
-                                className="btn btn-sm btn-danger"
-                                onClick={() =>
-                                    dispatch(changeTicketStatus(singleTicket._id, 'rejected', setSingleTicket))
-                                }>
-                                Reject
-                            </button>
-                        ) : (
-                            <button
-                                disabled={singleTicket.status === 'resolved' ? true : false}
-                                className="btn btn-sm btn-success ms-1"
-                                onClick={() => dispatch(
-                                    changeTicketStatus(singleTicket._id, 'resolved', setSingleTicket)
-                                )}>
-                                Resolve
-                            </button>
-                        )}
-                    </td>
-                </tr>
-            )}
+                    {list && (
+                        <button
+                            disabled={
+                                singleTicket.status === 'assigned' ||
+                                    singleTicket.status === 'resolved'
+                                    ? true
+                                    : false
+                            }
+                            className="btn btn-sm btn-danger"
+                            onClick={() =>
+                                dispatch(changeTicketStatus(singleTicket._id, 'rejected', setSingleTicket))
+                            }>
+                            Reject
+                        </button>
+                    )}
+
+                </td>
+            </tr>
+
 
             <TicketAssignModal
                 open={open}

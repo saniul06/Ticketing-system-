@@ -64,6 +64,15 @@ const TicketAssignModal = ({
                     }}>
                     Assign
                 </Button>
+
+                <Button
+                    variant="contained"
+                    size="small"
+                    onClick={handleClose}
+                    style={{ marginLeft: '10px' }}>
+                    Close
+                </Button>
+
             </Box>
         </Modal>
     );

@@ -67,7 +67,7 @@ const EmployeeTickets = ({ match }) => {
 
     return (
         <>
-            <MetaData title="Tickets-List" />
+            <MetaData title="Employee-Tickets-List" />
 
             <div className="container-fluid">
 

@@ -6,7 +6,7 @@ import MetaData from '../components/MetaData'
 const dashboard = () => {
     return (
         <>
-            <MetaData title="home" />
+            <MetaData title="dashboard" />
 
             <div className="container-fluid">
                 <div className="row" style={{ position: 'relative' }}>

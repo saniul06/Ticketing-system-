@@ -90,7 +90,7 @@ const CreateTicket = () => {
 
                         <div className='dashboard'>
 
-                            <h2 className='mb-4'>Add new ticket </h2>
+                            <h2 className='mb-4'>Create new ticket </h2>
 
                             <form onSubmit={handleSubmit}>
 

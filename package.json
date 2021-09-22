@@ -7,7 +7,6 @@
     "@emotion/styled": "^11.3.0",
     "@mui/material": "^5.0.0",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.4",
     "nanoid": "^3.1.25",
@@ -49,9 +48,12 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^11.2.7",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "enzyme": "^3.11.0",
     "jest": "^26.6.0",
-    "jest-enzyme": "^7.1.2"
+    "jest-dom": "^4.0.0",
+    "jest-enzyme": "^7.1.2",
+    "react-test-render": "^1.1.2"
   }
 }

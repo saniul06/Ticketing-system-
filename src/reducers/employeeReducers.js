@@ -5,7 +5,7 @@ import {
     ALL_EMPLOYEES_RESET
 } from '../actions//actionTypes'
 
-export const getAllEMPLOYEESReducer = (state = {}, action) => {
+export const getAllEMPLOYEESReducer = (state = [], action) => {
     switch (action.type) {
         case ALL_EMPLOYEES_REQUEST:
             return {

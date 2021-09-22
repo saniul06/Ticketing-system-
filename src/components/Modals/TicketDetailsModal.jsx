@@ -27,7 +27,7 @@ const TicketDetailsModal = ({ ticketdetails, ticketDetailsModal, ticketDetailsMo
             >
                 <Box sx={style}>
                     <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
+                        Ticket Details
                     </Typography>
                     <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                         <ul className="list-group list-group-flush overflow">
@@ -37,6 +37,7 @@ const TicketDetailsModal = ({ ticketdetails, ticketDetailsModal, ticketDetailsMo
                             <li className="list-group-item"> <span className='font-weight-bold text-success'>Details</span>: {ticketdetails.details} </li>
                         </ul>
                     </Typography>
+                    <button onClick={ticketDetailsModalclose} className='btn btn-sm btn-primary'>Close</button>
                 </Box>
             </Modal>
         </div>

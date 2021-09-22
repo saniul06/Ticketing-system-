@@ -4,7 +4,7 @@ import {
     ALL_EMPLOYEES_FAIL
 } from './actionTypes'
 
-import {getAll} from '../database/database'
+import { getAll } from '../database/database'
 
 export const getAllEmployees = () => async dispatch => {
     try {

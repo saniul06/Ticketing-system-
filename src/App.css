@@ -149,6 +149,10 @@ a:hover {
     overflow-y: auto;
 }
 
+tr td button {
+    margin-left: 5px;
+}
+
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     .sidebar {
