@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { memo } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
@@ -78,4 +78,4 @@ const TicketAssignModal = ({
     );
 };
 
-export default TicketAssignModal;
+export default memo(TicketAssignModal);
